@@ -1,0 +1,6 @@
+dotenv
+transformers
+langchain
+requests
+os
+streamlit
