@@ -1,0 +1,14 @@
+def text2speech(message):
+    API_URL = "https://api-inference.huggingface.co/models/espnet/kan-bayashi_ljspeech_vits"
+    headers = {"Authorization": "Bearer {HUGGINGFACEHUB_API_TOKEN}"}
+    payloads ={
+      "inputs": message
+    }
+
+    response = requests.post(API_URL, headers=headers, json=payloads)
+    with open('audio.flac', 'wb') as file:
+        file.write(response.content)
+
+img2text("palais-2d5c8.jpg")
+message="Dans un monde recouvert de nuages violets perpétuels, vivait Anya, une jeune fille passionnée par les étoiles.instructions pour construire un bateau volant."
+text2speech(message)
